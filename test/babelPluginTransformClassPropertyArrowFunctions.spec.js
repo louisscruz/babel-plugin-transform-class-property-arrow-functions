@@ -641,5 +641,32 @@ pluginTester({
       `,
       snapshot: true,
     },
+    {
+      title: 'it handles a typical React-style class without a constructor',
+      code: `
+        class App extends React.Component {
+          addOne = () => {
+            this.props.addOne();
+          }
+
+          subtractOne = () => {
+            this.props.subtractOne();
+          }
+
+          double = () => {
+            this.props.double();
+          }
+
+          halve = () => {
+            this.props.halve();
+          }
+
+          render() {
+            return React.createElement(SomeComponent, { addOne, subtractOne, double, halve });
+          }
+        }
+      `,
+      snapshot: true,
+    },
   ],
 });

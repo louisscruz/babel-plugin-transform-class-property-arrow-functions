@@ -119,6 +119,71 @@ class App extends React.Component {
 "
 `;
 
+exports[`babelPluginTransformClassPropertyArrowFunctions it handles a typical React-style class without a constructor: it handles a typical React-style class without a constructor 1`] = `
+"
+class App extends React.Component {
+  addOne = () => {
+    this.props.addOne();
+  }
+
+  subtractOne = () => {
+    this.props.subtractOne();
+  }
+
+  double = () => {
+    this.props.double();
+  }
+
+  halve = () => {
+    this.props.halve();
+  }
+
+  render() {
+    return React.createElement(SomeComponent, { addOne, subtractOne, double, halve });
+  }
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"use strict\\";
+
+class App extends React.Component {
+  constructor() {
+    this.addOne = this.addOne.bind(this);
+    this.subtractOne = this.subtractOne.bind(this);
+    this.double = this.double.bind(this);
+    this.halve = this.halve.bind(this);
+  }
+
+  addOne() {
+    this.props.addOne();
+  }
+
+  subtractOne() {
+    this.props.subtractOne();
+  }
+
+  double() {
+    this.props.double();
+  }
+
+  halve() {
+    this.props.halve();
+  }
+
+  render() {
+    return React.createElement(SomeComponent, {
+      addOne,
+      subtractOne,
+      double,
+      halve
+    });
+  }
+
+}
+"
+`;
+
 exports[`babelPluginTransformClassPropertyArrowFunctions it handles arrow functions when passed a variety of class property assignment types: it handles arrow functions when passed a variety of class property assignment types 1`] = `
 "
 class A {
