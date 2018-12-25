@@ -46,6 +46,35 @@ class A {
 "
 `;
 
+exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property with a single parameter assigned to a function returning an explicit return is provided in a class with a constructor: it handles scenarios where a class property with a single parameter assigned to a function returning an explicit return is provided in a class with a constructor 1`] = `
+"
+class A {
+  constructor() {}
+
+  a = parameterOne => {
+    const value = 1 + 2;
+    return value;
+  };
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"use strict\\";
+
+class A {
+  constructor() {
+    this.a = this.a.bind(this);
+  }
+
+  a(parameterOne) {
+    const value = 1 + 2;
+    return value;
+  }
+
+}
+"
+`;
+
 exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property with a single parameter assigned to a function returning an explicit return is provided in a class without a constructor: it handles scenarios where a class property with a single parameter assigned to a function returning an explicit return is provided in a class without a constructor 1`] = `
 "
 class A {
@@ -137,6 +166,35 @@ class A {
   }
 
   a(parameterOne, parameterTwo) {}
+
+}
+"
+`;
+
+exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property with multiple parameters assigned to a function returning an explicit return is provided in a class with a constructor: it handles scenarios where a class property with multiple parameters assigned to a function returning an explicit return is provided in a class with a constructor 1`] = `
+"
+class A {
+  constructor() {}
+
+  a = (parameterOne, parameterTwo) => {
+    const value = 1 + 2;
+    return value;
+  };
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"use strict\\";
+
+class A {
+  constructor() {
+    this.a = this.a.bind(this);
+  }
+
+  a(parameterOne, parameterTwo) {
+    const value = 1 + 2;
+    return value;
+  }
 
 }
 "
@@ -289,6 +347,35 @@ class A {
 `;
 
 exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property without parameters assigned to a function returning an explicit return is provided in a class with a constructor: it handles scenarios where a class property without parameters assigned to a function returning an explicit return is provided in a class with a constructor 1`] = `
+"
+class A {
+  constructor() {}
+
+  a = () => {
+    const value = 1 + 2;
+    return value;
+  };
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"use strict\\";
+
+class A {
+  constructor() {
+    this.a = this.a.bind(this);
+  }
+
+  a() {
+    const value = 1 + 2;
+    return value;
+  }
+
+}
+"
+`;
+
+exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property without parameters assigned to a function returning an explicit return is provided in a class with a constructor: it handles scenarios where a class property without parameters assigned to a function returning an explicit return is provided in a class with a constructor 2`] = `
 "
 class A {
   constructor() {}

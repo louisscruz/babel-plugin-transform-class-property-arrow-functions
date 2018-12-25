@@ -193,5 +193,50 @@ pluginTester({
       `,
       snapshot: true,
     },
+    {
+      title:
+        'it handles scenarios where a class property without parameters assigned to a function returning an explicit return is provided in a class with a constructor',
+      code: `
+        class A {
+          constructor() {}
+
+          a = () => {
+            const value = 1 + 2;
+            return value;
+          };
+        }
+      `,
+      snapshot: true,
+    },
+    {
+      title:
+        'it handles scenarios where a class property with a single parameter assigned to a function returning an explicit return is provided in a class with a constructor',
+      code: `
+        class A {
+          constructor() {}
+
+          a = parameterOne => {
+            const value = 1 + 2;
+            return value;
+          };
+        }
+      `,
+      snapshot: true,
+    },
+    {
+      title:
+        'it handles scenarios where a class property with multiple parameters assigned to a function returning an explicit return is provided in a class with a constructor',
+      code: `
+        class A {
+          constructor() {}
+
+          a = (parameterOne, parameterTwo) => {
+            const value = 1 + 2;
+            return value;
+          };
+        }
+      `,
+      snapshot: true,
+    },
   ],
 });
