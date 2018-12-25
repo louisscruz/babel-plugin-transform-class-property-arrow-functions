@@ -52,6 +52,12 @@ class App extends Base {
 
 [This Medium article](https://medium.com/@charpeni/arrow-functions-in-class-properties-might-not-be-as-great-as-we-think-3b3551c440b1) walks through some reasons why class properties assigned to arrow functions might not be preferable.
 
+## Installation
+
+`npm install --save-dev babel-plugin-transform-class-property-arrow-functions`
+
+`yarn add -D babel-plugin-transform-class-property-arrow-functions`
+
 ## Usage
 
 This plugin does not handle the transformation of class properties themselves.
