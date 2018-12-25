@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.com/louisscruz/babel-plugin-transform-class-property-arrow-functions.svg?branch=master)](https://travis-ci.com/louisscruz/babel-plugin-transform-class-property-arrow-functions)
+[![codecov](https://codecov.io/gh/louisscruz/babel-plugin-transform-class-property-arrow-functions/branch/master/graph/badge.svg)](https://codecov.io/gh/louisscruz/babel-plugin-transform-class-property-arrow-functions)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+
 # babel-plugin-transform-class-property-arrow-functions
 
 This plugin transforms class properties assigned to arrow functions into class methods bound in the class' constructor.
