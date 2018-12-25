@@ -49,12 +49,12 @@ function appendMethodBindingToConstructor(classConstructorPath, identifierName, 
 }
 
 function convertClassPropertyToMethod(classPropertyPath, identifierName, t) {
-  console.log(classPropertyPath.node.value);
   const isImplicitReturn = !t.isBlockStatement(classPropertyPath.node.value.body);
+  console.log(classPropertyPath.node.value.body);
   console.log(isImplicitReturn);
   const methodReturnBlock = isImplicitReturn
     ? t.blockStatement([t.returnStatement(classPropertyPath.node.value.body)])
-    : t.blockStatement([]);
+    : t.blockStatement(classPropertyPath.node.value.body.body);
   const newMethod = t.classMethod(
     'method',
     t.identifier(identifierName),

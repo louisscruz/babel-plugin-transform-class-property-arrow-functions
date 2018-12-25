@@ -89,5 +89,55 @@ pluginTester({
       `,
       snapshot: true,
     },
+    {
+      title:
+        'it handles scenarios where a class property without parameters assigned to a function returning a null-returning block is provided in a class with a constructor',
+      code: `
+        class A {
+          constructor() {}
+
+          a = () => {
+            console.log('hi');
+          };
+        }
+      `,
+      snapshot: true,
+    },
+    {
+      title:
+        'it handles scenarios where a class property without parameters assigned to a function returning a null-returning block is provided in a class without a constructor',
+      code: `
+        class A {
+          a = () => {
+            console.log('hi');
+          };
+        }
+      `,
+      snapshot: true,
+    },
+    {
+      title:
+        'it handles scenarios where a class property with a single parameter assigned to a function returning a null-returning block is provided in a class without a constructor',
+      code: `
+        class A {
+          a = parameterOne => {
+            console.log('hi');
+          };
+        }
+      `,
+      snapshot: true,
+    },
+    {
+      title:
+        'it handles scenarios where a class property with multiple parameters assigned to a function returning a null-returning block is provided in a class without a constructor',
+      code: `
+        class A {
+          a = (parameterOne, parameterTwo) => {
+            console.log('hi');
+          };
+        }
+      `,
+      snapshot: true,
+    },
   ],
 });
