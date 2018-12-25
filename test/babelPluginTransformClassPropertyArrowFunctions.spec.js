@@ -540,5 +540,106 @@ pluginTester({
       `,
       snapshot: true,
     },
+    // Sanity checks:
+    {
+      title: 'it does not alter class properties assigned to things other than arrow functions',
+      code: `
+        class A {
+          constructor() {}
+
+          a = 1;
+
+          b = someFunction();
+        }
+      `,
+      snapshot: true,
+    },
+    {
+      title: 'it handles arrow functions when passed a variety of class property assignment types',
+      code: `
+        class A {
+          constructor() {}
+
+          a = 1;
+
+          b = someFunction();
+
+          c = () => {
+            return 'hi';
+          }
+
+          d = 'd';
+        }
+      `,
+      snapshot: true,
+    },
+    {
+      title: 'it handles scenarios with many different class property assignments',
+      code: `
+        class A {
+          constructor() {}
+
+          a = (parameterOne, parameterTwo) => {
+            const value = 1 + 2;
+            return value;
+          };
+
+          b = (parameterOne, parameterTwo) => {
+            const value = 3 + 4;
+            return value;
+          }
+
+          c = (parameterOne, parameterTwo) => {
+            const value = 5 + 6;
+            return value;
+          }
+
+          d = (parameterOne, parameterTwo) => {
+            const value = 7 + 8;
+            return value;
+          }
+
+          e = (parameterOne, parameterTwo) => {
+            const value = 9 + 10;
+            return value;
+          }
+        }
+      `,
+      snapshot: true,
+    },
+    {
+      title: 'it handles a typical React-style class with a constructor',
+      code: `
+        class App extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {
+              total: 0
+            };
+          }
+
+          addOne = () => {
+            this.setState(({ total: oldTotal }) => ({ total: oldTotal + 1 }));
+          }
+
+          subtractOne = () => {
+            this.setState(({ total: oldTotal }) => ({ total: oldTotal - 1 }));
+          }
+
+          double = () => {
+            this.setState(({ total: oldTotal }) => ({ total: oldTotal * 2 }));
+          }
+
+          halve = () => {
+            this.setState(({ total: oldTotal }) => ({ total: oldTotal / 2 }));
+          }
+
+          render() {
+            return React.createElement(SomeComponent, { addOne, subtractOne, double, halve });
+          }
+        }
+      `,
+      snapshot: true,
+    },
   ],
 });
