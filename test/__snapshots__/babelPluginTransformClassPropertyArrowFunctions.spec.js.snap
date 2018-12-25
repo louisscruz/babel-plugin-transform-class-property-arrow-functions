@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property without parameters assigned to a block is provided in a class with a constructor: it handles scenarios where a class property without parameters assigned to a block is provided in a class with a constructor 1`] = `
+"
+class A {
+  constructor() {}
+
+  a = () => {};
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"use strict\\";
+
+class A {
+  constructor() {
+    this.a = this.a.bind(this);
+  }
+
+  a() {}
+
+}
+"
+`;
+
+exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property without parameters assigned to a block is provided in a class without a constructor: it handles scenarios where a class property without parameters assigned to a block is provided in a class without a constructor 1`] = `
+"
+class A {
+  a = () => {};
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"use strict\\";
+
+class A {
+  constructor() {
+    this.a = this.a.bind(this);
+  }
+
+  a() {}
+
+}
+"
+`;
