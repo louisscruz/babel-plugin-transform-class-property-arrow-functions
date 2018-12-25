@@ -1,3 +1,4 @@
+[![npm version](https://badge.fury.io/js/babel-plugin-transform-class-property-arrow-functions.svg)](https://badge.fury.io/js/babel-plugin-transform-class-property-arrow-functions)
 [![Build Status](https://travis-ci.com/louisscruz/babel-plugin-transform-class-property-arrow-functions.svg?branch=master)](https://travis-ci.com/louisscruz/babel-plugin-transform-class-property-arrow-functions)
 [![codecov](https://codecov.io/gh/louisscruz/babel-plugin-transform-class-property-arrow-functions/branch/master/graph/badge.svg)](https://codecov.io/gh/louisscruz/babel-plugin-transform-class-property-arrow-functions)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
