@@ -7,6 +7,21 @@
   "scripts": {
     "test": "jest"
   },
+  "keywords": [
+    "babel",
+    "plugin",
+    "transform",
+    "class",
+    "property",
+    "arrow",
+    "functions",
+    "class method",
+    "class methods",
+    "constructor",
+    "binding",
+    "prototype",
+    "instance"
+  ],
   "jest": {
     "collectCoverageFrom": ["src/**/*.js"],
     "testRegex": "test/.*spec.js$",
