@@ -91,7 +91,7 @@ pluginTester({
     },
     {
       title:
-        'it handles scenarios where a class property without parameters assigned to a function returning a null-returning block is provided in a class with a constructor',
+        'it handles scenarios where a class property without parameters assigned to a function returning a void-returning block is provided in a class with a constructor',
       code: `
         class A {
           constructor() {}
@@ -105,7 +105,7 @@ pluginTester({
     },
     {
       title:
-        'it handles scenarios where a class property without parameters assigned to a function returning a null-returning block is provided in a class without a constructor',
+        'it handles scenarios where a class property without parameters assigned to a function returning a void-returning block is provided in a class without a constructor',
       code: `
         class A {
           a = () => {
@@ -117,7 +117,7 @@ pluginTester({
     },
     {
       title:
-        'it handles scenarios where a class property with a single parameter assigned to a function returning a null-returning block is provided in a class without a constructor',
+        'it handles scenarios where a class property with a single parameter assigned to a function returning a void-returning block is provided in a class without a constructor',
       code: `
         class A {
           a = parameterOne => {
@@ -129,11 +129,65 @@ pluginTester({
     },
     {
       title:
-        'it handles scenarios where a class property with multiple parameters assigned to a function returning a null-returning block is provided in a class without a constructor',
+        'it handles scenarios where a class property with multiple parameters assigned to a function returning a void-returning block is provided in a class without a constructor',
       code: `
         class A {
           a = (parameterOne, parameterTwo) => {
             console.log('hi');
+          };
+        }
+      `,
+      snapshot: true,
+    },
+    {
+      title:
+        'it handles scenarios where a class property without parameters assigned to a function returning an explicit return is provided in a class with a constructor',
+      code: `
+        class A {
+          constructor() {}
+
+          a = () => {
+            const value = 1 + 2;
+            return value;
+          };
+        }
+      `,
+      snapshot: true,
+    },
+    {
+      title:
+        'it handles scenarios where a class property without parameters assigned to a function returning an explicit return is provided in a class without a constructor',
+      code: `
+        class A {
+          a = () => {
+            const value = 1 + 2;
+            return value;
+          };
+        }
+      `,
+      snapshot: true,
+    },
+    {
+      title:
+        'it handles scenarios where a class property with a single parameter assigned to a function returning an explicit return is provided in a class without a constructor',
+      code: `
+        class A {
+          a = parameterOne => {
+            const value = 1 + 2;
+            return value;
+          };
+        }
+      `,
+      snapshot: true,
+    },
+    {
+      title:
+        'it handles scenarios where a class property with multiple parameters assigned to a function returning an explicit return is provided in a class without a constructor',
+      code: `
+        class A {
+          a = (parameterOne, parameterTwo) => {
+            const value = 1 + 2;
+            return value;
           };
         }
       `,

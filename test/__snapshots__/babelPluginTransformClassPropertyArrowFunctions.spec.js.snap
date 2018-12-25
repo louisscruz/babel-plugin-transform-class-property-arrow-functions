@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property with a single parameter assigned to a function returning a null-returning block is provided in a class without a constructor: it handles scenarios where a class property with a single parameter assigned to a function returning a null-returning block is provided in a class without a constructor 1`] = `
+exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property with a single parameter assigned to a function returning a void-returning block is provided in a class without a constructor: it handles scenarios where a class property with a single parameter assigned to a function returning a void-returning block is provided in a class without a constructor 1`] = `
 "
 class A {
   a = parameterOne => {
@@ -46,6 +46,33 @@ class A {
 "
 `;
 
+exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property with a single parameter assigned to a function returning an explicit return is provided in a class without a constructor: it handles scenarios where a class property with a single parameter assigned to a function returning an explicit return is provided in a class without a constructor 1`] = `
+"
+class A {
+  a = parameterOne => {
+    const value = 1 + 2;
+    return value;
+  };
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"use strict\\";
+
+class A {
+  constructor() {
+    this.a = this.a.bind(this);
+  }
+
+  a(parameterOne) {
+    const value = 1 + 2;
+    return value;
+  }
+
+}
+"
+`;
+
 exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property with a single parameter assigned to a function returning an implicit return is provided in a class without a constructor: it handles scenarios where a class property with a single parameter assigned to a function returning an implicit return is provided in a class without a constructor 1`] = `
 "
 class A {
@@ -69,7 +96,7 @@ class A {
 "
 `;
 
-exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property with multiple parameters assigned to a function returning a null-returning block is provided in a class without a constructor: it handles scenarios where a class property with multiple parameters assigned to a function returning a null-returning block is provided in a class without a constructor 1`] = `
+exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property with multiple parameters assigned to a function returning a void-returning block is provided in a class without a constructor: it handles scenarios where a class property with multiple parameters assigned to a function returning a void-returning block is provided in a class without a constructor 1`] = `
 "
 class A {
   a = (parameterOne, parameterTwo) => {
@@ -115,6 +142,33 @@ class A {
 "
 `;
 
+exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property with multiple parameters assigned to a function returning an explicit return is provided in a class without a constructor: it handles scenarios where a class property with multiple parameters assigned to a function returning an explicit return is provided in a class without a constructor 1`] = `
+"
+class A {
+  a = (parameterOne, parameterTwo) => {
+    const value = 1 + 2;
+    return value;
+  };
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"use strict\\";
+
+class A {
+  constructor() {
+    this.a = this.a.bind(this);
+  }
+
+  a(parameterOne, parameterTwo) {
+    const value = 1 + 2;
+    return value;
+  }
+
+}
+"
+`;
+
 exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property with multiple parameters assigned to a function returning an implicit return is provided in a class without a constructor: it handles scenarios where a class property with multiple parameters assigned to a function returning an implicit return is provided in a class without a constructor 1`] = `
 "
 class A {
@@ -138,7 +192,7 @@ class A {
 "
 `;
 
-exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property without parameters assigned to a function returning a null-returning block is provided in a class with a constructor: it handles scenarios where a class property without parameters assigned to a function returning a null-returning block is provided in a class with a constructor 1`] = `
+exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property without parameters assigned to a function returning a void-returning block is provided in a class with a constructor: it handles scenarios where a class property without parameters assigned to a function returning a void-returning block is provided in a class with a constructor 1`] = `
 "
 class A {
   constructor() {}
@@ -165,7 +219,7 @@ class A {
 "
 `;
 
-exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property without parameters assigned to a function returning a null-returning block is provided in a class without a constructor: it handles scenarios where a class property without parameters assigned to a function returning a null-returning block is provided in a class without a constructor 1`] = `
+exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property without parameters assigned to a function returning a void-returning block is provided in a class without a constructor: it handles scenarios where a class property without parameters assigned to a function returning a void-returning block is provided in a class without a constructor 1`] = `
 "
 class A {
   a = () => {
@@ -229,6 +283,62 @@ class A {
   }
 
   a() {}
+
+}
+"
+`;
+
+exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property without parameters assigned to a function returning an explicit return is provided in a class with a constructor: it handles scenarios where a class property without parameters assigned to a function returning an explicit return is provided in a class with a constructor 1`] = `
+"
+class A {
+  constructor() {}
+
+  a = () => {
+    const value = 1 + 2;
+    return value;
+  };
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"use strict\\";
+
+class A {
+  constructor() {
+    this.a = this.a.bind(this);
+  }
+
+  a() {
+    const value = 1 + 2;
+    return value;
+  }
+
+}
+"
+`;
+
+exports[`babelPluginTransformClassPropertyArrowFunctions it handles scenarios where a class property without parameters assigned to a function returning an explicit return is provided in a class without a constructor: it handles scenarios where a class property without parameters assigned to a function returning an explicit return is provided in a class without a constructor 1`] = `
+"
+class A {
+  a = () => {
+    const value = 1 + 2;
+    return value;
+  };
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"use strict\\";
+
+class A {
+  constructor() {
+    this.a = this.a.bind(this);
+  }
+
+  a() {
+    const value = 1 + 2;
+    return value;
+  }
 
 }
 "
